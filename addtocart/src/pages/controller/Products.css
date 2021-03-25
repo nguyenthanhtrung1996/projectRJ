@@ -1,0 +1,24 @@
+.container__products__main{
+    padding: 3%;
+    box-shadow: 0 0 10px #dfe6e9;
+    border: solid 1px #dfe6e9;
+}
+
+.Card{
+    box-shadow: 0 0 20px #dfe6e9;
+    padding: 15px;
+    border: #dfe6e9;
+    margin-bottom: 10%;
+}
+
+.price{
+    color: #e74c3c;
+}
+
+.cardbody{
+    padding-left: 0;
+    padding-right: 0;
+}
+.btn{
+    width: 100%;
+}
