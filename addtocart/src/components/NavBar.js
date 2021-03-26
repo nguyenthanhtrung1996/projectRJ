@@ -14,14 +14,14 @@ import './NavBar.css'
 const NavBar = (props) => {
   const [ quality, setQuality ] = useState(0);
   const { cartItems, addToCart } = useContext(CartContext);
-  console.log(cartItems);
+  // console.log(cartItems);
   useEffect(()=> {
     if(cartItems.length >0 ){
       let number = 0;
       cartItems.forEach(element => {
         number = number + element.quality
       });
-      console.log(number);
+      // console.log(number);
       setQuality(number);
     }
   }, [cartItems]);

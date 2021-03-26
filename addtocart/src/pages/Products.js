@@ -1,25 +1,32 @@
 
 import React, { useContext } from 'react';
+
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
     Button, Card, CardBody, CardImg,
     CardText,
     CardTitle, Col,
-    Container, Row,
-    Carousel,
-    CarouselItem,
-    CarouselControl,
-    CarouselIndicators,
-    CarouselCaption
-
+    Container, Row
 } from 'reactstrap';
 import { CartContext } from '../contexts/CartContext';
-import './controller/Products.css'
-
+import './controller/Products.css';
+toast.configure()
 
 const Products = (props) => {
 
     const { cartItems, addToCart } = useContext(CartContext);
-    console.log(cartItems);
+    // console.log(cartItems);
+
+    
+
+
+    
+    const notify = (item) => {
+        toast(`Add ${item.name} Success`,{autoClose:2000});
+        console.log(); 
+    }
+    
 
     return(
         <Container className='container__products__main'>
@@ -36,7 +43,8 @@ const Products = (props) => {
                                 <CardTitle tag="h5">{item.name}</CardTitle>
                                 <CardText className="price">$ {item.price}</CardText>
                                 <CardText className="">{item.decription1}</CardText>
-                                <Button className='btn' onClick={() => addToCart(item)}>Add to Cart</Button>
+                                <Button className='btn' onClick={() => {addToCart(item);notify(item);}}>Add to Cart</Button>
+                                
                             </CardBody>
                         </Card>
                     </Col>

@@ -45,12 +45,19 @@ export function CartProvider(props){
         }
         return price;
     }
+    const deleteProduct = (item) => {
+        const newCart = [...cartItems];
+        const index = newCart.indexOf(item);
+        newCart[index].quality = 0;
+        setCartItems(newCart);
+    }
     return(
         <CartContext.Provider value={{
             cartItems,
             addToCart,
             decreaseQuality,
             getTotal,
+            deleteProduct,
         }}>
             {props.children}
         </CartContext.Provider>

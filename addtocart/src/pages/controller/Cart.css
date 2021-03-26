@@ -1,13 +1,36 @@
 .container__cart__main{
-    padding: 5% 2%;
+    padding: 3%;
     box-shadow: 0 0 10px #dfe6e9;
     border: solid 1px #dfe6e9;
 }
 
 .product__box{
+    box-shadow: 0 0 10px #dfe6e9;
+    border: 1px solid rgba(0,0,0,.125);
+    padding: 5px 5px;
+    margin-bottom: 3%;
+}
+
+.icon__box{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.iconDelete{
+    font-size: 1rem;
+    color: #636e72;
+    cursor: pointer;
+}
+
+.iconDelete:hover{
+    color: #2d3436;
+}
+
+.product__box__content{
     padding: 2rem 6rem;
     margin-bottom: 1rem;
-    box-shadow: 0 0 10px #dfe6e9;
+    border: none;
 }
 
 .card-body{
@@ -30,6 +53,10 @@
 .button{
     font-size: 24;
     cursor: pointer;
+    color: #636e72;
+}
+.button:hover{
+    color: #2d3436;
 }
 
 .payment{
@@ -66,5 +93,20 @@
     .cart-decription{
         flex: 0 0 100%;
         max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .product__box__content{
+        padding: 1rem 1rem;
+    }
+    .nav{
+        flex-direction: row;
+        justify-content: center;
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
