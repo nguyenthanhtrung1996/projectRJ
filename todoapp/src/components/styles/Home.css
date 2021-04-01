@@ -1,0 +1,65 @@
+.Home__Box{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.Home__Box__content{
+    background-color:  #e0e0e0;
+    padding: 2rem 2rem;
+    border-radius: 2rem;
+    width: 30%;
+}
+
+.Home__Title__nothing{
+    opacity: 0.5;
+    font-size: 1.5rem;
+}
+
+.Home__Box__Title{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.Home__Box__Title:not(:last-child){
+    border-bottom: 1px solid #9e9e9e;
+}
+
+.Home__Title{
+    display: inline-block;
+    margin: 0 0 0 5px;
+    font-size: 1.5rem;
+    
+}
+
+.Home__Title__isCompleted{
+    display: inline-block;
+    text-decoration: line-through;
+    opacity: 0.5;
+    margin: 0 0 0 5px;
+    font-size: 1.5rem;
+}
+
+.Icon__Changeactive{
+    cursor: pointer;
+}
+
+.Icon__Changeactive__true{
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.Add__button{
+    font-size: 3rem;
+    color: #616161;
+}
+
+.Box__Icon{
+    /* display: inline-block; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
