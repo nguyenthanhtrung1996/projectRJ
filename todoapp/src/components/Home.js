@@ -8,7 +8,7 @@ import './styles/Home.css'
 
 function Home(props) {
     const { todoList, handleOnChangeActive, deleteItem } = useContext(TodoContext);
-    console.log(todoList);
+    // console.log(todoList);
 
     return (
         <div className='Home__Box'>

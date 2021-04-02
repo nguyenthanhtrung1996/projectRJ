@@ -1,11 +1,15 @@
-import logo from './logo.svg';
+import { useEffect } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
-import { TodoProvider } from './contexts/TodoContext'
-import Home from './components/Home'
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'  
-import AddPage from './components/AddPage'
+import AddPage from './components/AddPage';
+import Home from './components/Home';
+import { TodoProvider } from './contexts/TodoContext';
 
 function App() {
+
+  useEffect(() => {
+    document.title = "ToDoList";
+  }, [])
   return (
     <TodoProvider>
       <Router>

@@ -1,24 +1,70 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { BsFillPlusCircleFill } from "react-icons/bs";
 import { Link } from 'react-router-dom';
-import { TodoContext } from '../contexts/TodoContext'
-import './styles/AddPage.css'
+import { TodoContext } from '../contexts/TodoContext';
+import './styles/AddPage.css';
+import Switch from 'react-input-switch';
+import Button from '@material-ui/core/Button';
 
 function AddPage(props) {
-    const { todoList, addTodo } = useContext(TodoContext);
+    const { todoList, addTodo, getTime } = useContext(TodoContext);
 
     const [ textTitle, setTextTitle ] = useState('');
     const [ textNote, setTextNote ] = useState('');
-    console.log(props.match.params);
+    // const [ hours, setHours ] = useState();
+    // const [ minute, setMinute ] = useState('00');
+
+    const [ time, setTime ] = useState();
+    const [value, setValue] = useState('no');
 
     useEffect(() => {
         if(props.match.params.id !==undefined){
             const todo = todoList[parseInt(props.match.params.id)];
-            // console.log(todoList[parseInt(props.match.params.id)]);
+            console.log(todoList[parseInt(props.match.params.id)]);
             setTextTitle(todo.textTitle);
             setTextNote(todo.textNote);
+            if(todo.time == undefined){
+                setTime(getHours());
+                console.log(time);
+            } else {
+                setTime(todo.time);
+                setValue('yes');
+                console.log(time);
+            }
+        } else {
+            console.log(getTime() + 5);
+            setTime(getHours());
+            console.log(time);
         }
+        
     }, [])
+
+    function getHours(){
+        return parseInt(getTime()) + 1 + ':00';
+    }
+
+    function getData(){
+        if(props.match.params.id !==undefined){
+            const newObj = {
+                id: parseInt(props.match.params.id),
+                textTitle,
+                textNote,
+                time: value == 'yes' ? time : undefined,
+                isCompleted: todoList[parseInt(props.match.params.id)].isCompleted
+            }
+            addTodo(newObj);
+        } else {
+            const newObj = {
+                id: todoList.length == 0 ? 0 : parseInt(todoList[todoList.length-1].id) + 1,
+                textTitle,
+                textNote,
+                time: value == 'yes' ? time : undefined,
+                isCompleted: false
+            }
+            // console.log(`obj: ${newObj}`)
+            addTodo(newObj);
+        }
+    }
+      
 
     return (
         <div>
@@ -45,46 +91,44 @@ function AddPage(props) {
                     >
                     </textarea>
                 </div>
-                
+                <div className='Reminder__box'>
+                    <span>Reminder</span>
+                    <Switch on="yes" off="no" value={value} onChange={setValue} />
+                </div>
+                <div className='Oclock__box'>
+                        {
+                            value == 'yes' ? 
+                            <input 
+                                type="time" 
+                                value={time} 
+                                onChange={(e) => {
+                                    setTime(e.target.value);
+                                }}
+                                className='Oclock'
+                            />
+                            : 
+                            <div style={{display: 'none'}}></div>
+                        }
+                </div>
                 
             </div>
             <div className='Box__button'>
                 <Link 
                         to='/' 
                         onClick={() => {
-                            if(props.match.params.id !==undefined){
-                                const newObj = {
-                                    id: parseInt(props.match.params.id),
-                                    textTitle,
-                                    textNote,
-                                    isCompleted: todoList[parseInt(props.match.params.id)].isCompleted
-                                }
-                                // console.log(`obj: ${todoList[parseInt(props.match.params.id)].isCompleted}`)
-                                addTodo(newObj);
-                            } else {
-                                const newObj = {
-                                    id: todoList.length == 0 ? 0 : parseInt(todoList[todoList.length-1].id) + 1,
-                                    textTitle,
-                                    textNote,
-                                    isCompleted: false
-                                }
-                                console.log(`obj: ${newObj}`)
-                                addTodo(newObj);
-                            }
-                            
-                            // console.log(`obj: ${newObj}`)
-                            // addTodo(newObj);
+                            getData();
                         }}
                         className='Button'
                     >
-                        Add
+                        <Button variant="contained">Add</Button>
                 </Link>
                 <Link 
                         to='/' 
                         className='Button'
-                    >
-                        Cancel
+                >
+                        <Button variant="contained">Cancel</Button>
                 </Link>
+                
             </div>
             
         </div>
