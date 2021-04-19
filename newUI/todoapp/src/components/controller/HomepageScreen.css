@@ -5,7 +5,7 @@
     background-color: #020f38;   
     color: white;
     padding: 4%;
-    height: calc( 100vh - calc(8/100*100vw));
+    height: calc( 100% - calc(8 / 100 * 480px))
 }
 
 p{
@@ -71,7 +71,25 @@ p{
 .Home__Other__timer{
     flex: 0.45;
     padding-top: 6.8%;
+}
 
+.Home__Other__WorkList::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.Home__Other__WorkList::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+.Home__Other__WorkList::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+.Home__Other__WorkList::-webkit-scrollbar-thumb:hover {
+    background: #555; 
 }
 
 .Home__Other__title{
@@ -81,11 +99,13 @@ p{
 .Home__Other__WorkList{
     display: flex;
     flex-wrap: wrap;
+
+    /* overflow-y: scroll; */
 }
 
 .Home__Other__WorkBox{
     width: 21%;
-    padding: 6.8% 4.5%;
+    padding: 6% 4.5%;
     background-color: #363d5a;
     border-radius: 5px;
     margin: 0 5% 5% 0;
@@ -98,7 +118,13 @@ p{
 
 .Home__icon__box{
     flex: 0.141;
+    display: flex;
+    justify-content: center;
 }  
+
+.Home__Other__WorkBox__title{
+    margin-bottom: 15%;
+}
 
 .Home__icon{
     display: inline-block;

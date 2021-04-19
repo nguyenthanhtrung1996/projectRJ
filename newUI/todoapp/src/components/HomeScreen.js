@@ -8,6 +8,9 @@ HomepageScreen.propTypes = {
 };
 
 function HomepageScreen(props) {
+    const { todoList, getTimeCurrent } = props;
+    // console.log(props);
+
     return (
         <div className='Home__container'>
             <div className='Home__Mostuse__box'>
@@ -31,26 +34,15 @@ function HomepageScreen(props) {
             <div className='Home__Other__timer'>
                 <p className='Home__Other__title'>Other timer</p>
                 <div className='Home__Other__WorkList'>
-                    <div className='Home__Other__WorkBox'>
-                        <p>design</p>
-                        <p>15min</p>
-                    </div>
-                    <div className='Home__Other__WorkBox'>
-                        <p>design</p>
-                        <p>15min</p>
-                    </div>
-                    <div className='Home__Other__WorkBox'>
-                        <p>design</p>
-                        <p>15min</p>
-                    </div>
-                    <div className='Home__Other__WorkBox'>
-                        <p>design</p>
-                        <p>15min</p>
-                    </div>
-                    <div className='Home__Other__WorkBox'>
-                        <p>design</p>
-                        <p>15min</p>
-                    </div>
+                    {todoList.map((todo) => {
+                        return(
+                            <div className='Home__Other__WorkBox'>
+                                <p className='Home__Other__WorkBox__title'>{todo.title}</p>
+                                <p>{todo.minutes} min</p>
+                            </div>
+                        )
+                    })
+                    }
                 </div>
             </div>
             <div className='Home__icon__box'>
@@ -58,7 +50,7 @@ function HomepageScreen(props) {
                 <Link className='Home__icon'
                     to="/AddWorkPage"
                 >
-                    <p>+</p>
+                    {/* <p>+</p> */}
                 </Link>
             </div>
         </div>

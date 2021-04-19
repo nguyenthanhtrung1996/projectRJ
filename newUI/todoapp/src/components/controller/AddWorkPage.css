@@ -25,6 +25,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 5% 0;
 }
 
 .Add__selecttime__time{
@@ -33,18 +34,27 @@
     justify-content: space-between;
 }
 
+.Add__selecttime__title{
+    font-weight: 600;
+    /* margin-bottom: 6%; */
+}
+
 @media only screen and (min-width: 480px) {
     body {
       background-color: lightblue;
     }
-    .Add__selecttime__icon{
+    .Add__selecttime__icon__1,
+    .Add__selecttime__icon__2,
+    .Add__selecttime__icon__3,
+    .Add__selecttime__icon__4{
         position: relative;
         width: 100%;
-        --height: calc(calc(8 / 100 * calc(100vw - calc(100vw - 480px)))) !important;
-        background-color: #111d42;
-        --height2: calc(100vw - calc(100vw - 480px)) !important;
         border-radius: 50%;
-        --height3: calc(79 / 100 * var(--height2));
+        background-color: #111d42;
+
+        --height: calc(calc(8 / 100 * 480px)) !important;
+        --height2: calc(100vw - calc(100vw - 480px) - var(--height)) !important;
+        --height3: calc(81 / 100 * var(--height2));
         height: calc(var(--height2) - var(--height3));
     }
 }
@@ -53,29 +63,158 @@
     margin-top: 10px;
     display: flex;
     flex-direction: column;
-    width: 21%;
+    width: 19%;
 }
 
-.Add__selecttime__icon{
+.Add__selecttime__icon__1{
     position: relative;
     width: 100%;
-    --height: calc(calc(8/100*100vw));
     background-color: #111d42;
-    --height2: calc(100vw - var(--height));
     border-radius: 50%;
-    --height3: calc(79 / 100 * var(--height2));
+
+    --height: calc(calc(8/100*100vw));
+    --height2: calc(100vw - var(--height));
+    --height3: calc(81 / 100 * var(--height2));
     height: calc(var(--height2) - var(--height3));
 }
 
-.Add__selecttime__icon::before{
+
+.Add__selecttime__icon__1::before{
+    content: '';
     position: absolute;
     width: 50%;
     height: 50%;
-    background-color: blue;
+    background-color: #223369;
+
     top: 0;
-    content: '';
     right: 0;
+    
     border-top-right-radius: 100%;
+}
+
+.Add__selecttime__icon__1__active::before{
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background-color: #ff90a1;
+
+    top: 0;
+    right: 0;
+    
+    border-top-right-radius: 100%;
+}
+
+.Add__selecttime__icon__2{
+    position: relative;
+    width: 100%;
+    background-color: #111d42;
+    border-radius: 50%;
+
+    --height: calc(calc(8/100*100vw));
+    --height2: calc(100vw - var(--height));
+    --height3: calc(81 / 100 * var(--height2));
+    height: calc(var(--height2) - var(--height3));
+}
+
+.Add__selecttime__icon__2::before{
+    content: '';
+    position: absolute;
+
+    width: 50%;
+    height: 51%;
+    background-color: #223369;
+
+    top: 0;
+    right: 0;
+    
+    border-top-right-radius: 100%;
+}
+
+.Add__selecttime__icon__2::after{
+    content: '';
+    position: absolute;
+
+    width: 50%;
+    height: 51%;
+    background-color: #223369;
+
+    bottom: 0;
+    right: 0;
+
+    border-bottom-right-radius: 100%;
+}
+
+.Add__selecttime__icon__2__active::before{
+    content: '';
+    position: absolute;
+
+    width: 50%;
+    height: 51%;
+    background-color: #ff90a1;
+
+    top: 0;
+    right: 0;
+    
+    border-top-right-radius: 100%;
+}
+
+.Add__selecttime__icon__2__active::after{
+    content: '';
+    position: absolute;
+
+    width: 50%;
+    height: 51%;
+    background-color: #ff90a1;
+
+    bottom: 0;
+    right: 0;
+
+    border-bottom-right-radius: 100%;
+}
+
+.Add__selecttime__icon__3{
+    position: relative;
+    width: 100%;
+    background-color: #223369;
+    border-radius: 50%;
+
+    --height: calc(calc(8/100*100vw));
+    --height2: calc(100vw - var(--height));
+    --height3: calc(81 / 100 * var(--height2));
+    height: calc(var(--height2) - var(--height3));
+}
+
+.Add__selecttime__icon__3::before{
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background-color: #111d42;
+
+    top: 0;
+    
+    border-top-left-radius: 100%;
+}
+
+.Add__selecttime__icon__3__active{
+    background-color: #ff90a1;
+}
+
+.Add__selecttime__icon__4{
+    position: relative;
+    width: 100%;
+    background-color: #223369;
+    border-radius: 50%;
+
+    --height: calc(calc(8/100*100vw));
+    --height2: calc(100vw - var(--height));
+    --height3: calc(81 / 100 * var(--height2));
+    height: calc(var(--height2) - var(--height3));
+}
+
+.Add__selecttime__icon__4__active{
+    background-color: #ff90a1;
 }
 
 .Add__selecttime__decription{
@@ -88,8 +227,81 @@
     flex: 0.7;
 }
 
+.Add__namework__title{
+    font-weight: 600;
+    margin-bottom: 6%;
+}
+
+.Add__namework__workbox__1,
+.Add__namework__workbox__2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 6%;
+}
+
+.Add__namework__workbox__workout{
+    background-color: #363d5a;
+    width: 40%;
+    padding: 2% 0;
+    border-radius: 10px;
+    text-align: center;
+
+}
+
+.Add__namework__workbox__animation{
+    background-color: #363d5a;
+    width: 54%;
+    padding: 2% 0;
+    border-radius: 10px;
+    text-align: center;
+
+}
+
+.Add__namework__workbox__design{
+    width: 29%;
+    background-color: #363d5a;
+    padding: 2% 0;
+    border-radius: 10px;
+    text-align: center;
+
+}
+
+.Add__namework__workbox__egg{
+    width: 29%;
+    background-color: #363d5a;
+    padding: 2% 0;
+    border-radius: 10px;
+    text-align: center;
+
+}
+
+.Add__namework__workbox__meditation{
+    width: 29%;
+    background-color: #363d5a;
+    padding: 2% 0;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.Add__namework__workbox__active{
+    background-color: #ff90a1;
+}
+
 .Add__footer{
     flex: 1;
+}
+
+.Add__button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
+    color: white;
+    height: 50%;
+    background-color: #ff90a1;
+    border-radius: 20px;
 }
 
 .Add__icon{
