@@ -105,10 +105,37 @@ p{
 
 .Home__Other__WorkBox{
     width: 21%;
-    padding: 6% 4.5%;
-    background-color: #363d5a;
+
     border-radius: 5px;
+    background-color: #363d5a;
+
+    padding: 6% 4.5%;
     margin: 0 5% 5% 0;
+}
+
+.Home__Other__WorkBox__active{
+    width: 21%;
+
+    border-radius: 5px;
+    background-color: #ff90a1;
+
+    padding: 6% 4.5%;
+    margin: 0 5% 5% 0;
+}
+
+.Home__Other__WorkBox:nth-last-child(1){
+    animation: movehome 0.5s;
+}
+
+@keyframes movehome {
+    from {
+        transform: translateX(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0px);
+        opacity: 1;
+    }
 }
 
 .Home__Other__WorkList div:nth-child(3n+0) {
@@ -123,13 +150,34 @@ p{
 }  
 
 .Home__Other__WorkBox__title{
-    margin-bottom: 15%;
+    margin-bottom: 10%;
+}
+
+.Home__Other__WorkBox__timeicon{
+    display: flex;
+    justify-content: space-between;
 }
 
 .Home__icon{
     display: inline-block;
-    width: calc(100vh*0.136*60/100);
-    height: 60%;
+    
     background-color: #ff90a1;
     border-radius: 50%;
+
+    --width: calc(100vh - calc(8/100*100vh));
+    --width1: calc(0.141 * var(--width));
+    width: calc(60 / 100 * var(--width1));
+    height: 60%;
+}
+
+@media only screen and (min-width: 480px) {
+    .Home__icon{
+        display: inline-block;
+        --width: calc(100vh - calc(8/100*100vh));
+        --width1: calc(0.141 * var(--width));
+        width: calc(60 / 100 * var(--width1));
+        height: 60%;
+        background-color: #ff90a1;
+        border-radius: 50%;
+    }
 }

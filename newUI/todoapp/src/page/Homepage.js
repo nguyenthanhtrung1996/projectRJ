@@ -8,13 +8,15 @@ Homepage.propTypes = {
 };
 
 function Homepage(props) {
-    const [ todoList, AddTodo, getTimeCurrent ] = useContext(TodoContext);
+    const [ todoList, AddTodo, getTimeCurrent, removeTodo, toDoEveryday ] = useContext(TodoContext);
 
-    console.log('HomePage re-render');
+    console.log('HomePage re-render', toDoEveryday);
     return (
         <HomeScreen 
             todoList={todoList}
             getTimeCurrent={getTimeCurrent}
+            removeTodo={removeTodo}
+            toDoEveryday={toDoEveryday}
         />
     );
 }

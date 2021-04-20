@@ -28,7 +28,7 @@ function AddWorkScreen(props) {
                 <div className='Add__selecttime'>
                     <p className='Add__selecttime__title'>Select time</p>
                     <div className='Add__selecttime__time'>
-                        <div className='Add__selecttime__icon__box'>
+                        <div className='Add__selecttime__icon__box__1'>
                             <div 
                                 className={activeTime == '15' ? 'Add__selecttime__icon__1 Add__selecttime__icon__1__active' : 'Add__selecttime__icon__1'}
                                 onClick={() => {
@@ -38,7 +38,7 @@ function AddWorkScreen(props) {
                             </div>
                             <p className='Add__selecttime__decription'>15 min</p>
                         </div>
-                        <div className='Add__selecttime__icon__box'>
+                        <div className='Add__selecttime__icon__box__2'>
                             <div 
                                 className={activeTime == '30' ? 'Add__selecttime__icon__2 Add__selecttime__icon__2__active' : 'Add__selecttime__icon__2'}
                                 onClick={() => {
@@ -48,7 +48,7 @@ function AddWorkScreen(props) {
                             </div>
                             <p className='Add__selecttime__decription'>30 min</p>
                         </div>
-                        <div className='Add__selecttime__icon__box'>
+                        <div className='Add__selecttime__icon__box__3'>
                             <div 
                                 className={activeTime == '45' ? 'Add__selecttime__icon__3 Add__selecttime__icon__3__active' : 'Add__selecttime__icon__3'}
                                 onClick={() => {
@@ -58,7 +58,7 @@ function AddWorkScreen(props) {
                             </div>
                             <p className='Add__selecttime__decription'>45 min</p>
                         </div>
-                        <div className='Add__selecttime__icon__box'>
+                        <div className='Add__selecttime__icon__box__4'>
                             <div 
                                 className={activeTime == 'other' ? 'Add__selecttime__icon__4 Add__selecttime__icon__4__active' : 'Add__selecttime__icon__4'}
                                 onClick={() => {
