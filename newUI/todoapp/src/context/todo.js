@@ -8,6 +8,12 @@ export function TodoProvider(props){
     const [ toDoEveryday, setTodoEveryday ] = useState([]);
 
     useEffect(() => {
+        if(localStorage.getItem('todoList'))
+            console.log(true)
+        else localStorage.setItem('todoList', todoList)
+    }, [])
+
+    useEffect(() => {
         if(todoList.length == 0) return;
         const checkTime = setInterval(() => {
             todoList.forEach((todo,index) => {
@@ -121,7 +127,8 @@ export function TodoProvider(props){
 
     const AddTodo = (obj) => {
         const newList = [...todoList];
-        obj.time = getTimeCurrent() + parseInt(obj.time) * 60000;
+        if( obj.time < 46 ) obj.time = getTimeCurrent() + parseInt(obj.time) * 60000;
+        // obj.time = getTimeCurrent() + parseInt(obj.time) * 60000;
         newList.push(obj);
         formatTime(newList);
     }

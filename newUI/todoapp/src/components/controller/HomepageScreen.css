@@ -5,7 +5,7 @@
     background-color: #020f38;   
     color: white;
     padding: 4%;
-    height: calc( 100% - calc(8 / 100 * 480px))
+    height:  calc(100% - calc(8 / 100 * 100vw));
 }
 
 p{
@@ -14,7 +14,7 @@ p{
 
 .Home__Mostuse__box{
     /* margin: 17% 0 6.8% 0; */
-    flex: 0.41;
+    flex: 41%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -69,7 +69,7 @@ p{
 
 
 .Home__Other__timer{
-    flex: 0.45;
+    flex: 45%;
     padding-top: 6.8%;
 }
 
@@ -144,7 +144,7 @@ p{
 }
 
 .Home__icon__box{
-    flex: 0.141;
+    flex: 14%;
     display: flex;
     justify-content: center;
 }  
@@ -164,20 +164,37 @@ p{
     background-color: #ff90a1;
     border-radius: 50%;
 
-    --width: calc(100vh - calc(8/100*100vh));
+    /* --width: calc(100vh - calc(8/100*100vh));
     --width1: calc(0.141 * var(--width));
-    width: calc(60 / 100 * var(--width1));
+    width: calc(60 / 100 * var(--width1)); */
+    /* --width: calc(100vh - calc(8/100*100vw) - calc(0.068 * 100vw));
+    --width1: calc(0.14 * var(--width));
+    width: calc(0.6 * var( --width1)); */
+    --vw-p: calc(8/100*100vw);
+    --width: calc(100vh - var(--vw-p) - calc(0.068 *calc(100vw - var(--vw-p))));
+    --width1: calc(0.14 * var(--width));
+    width: calc(0.6 * var( --width1));
     height: 60%;
 }
 
 @media only screen and (min-width: 480px) {
     .Home__icon{
         display: inline-block;
-        --width: calc(100vh - calc(8/100*100vh));
-        --width1: calc(0.141 * var(--width));
+        --width: calc(100vh - calc(8/100*480px) - calc(0.068 * 480px));
+        --width1: calc(0.14 * var(--width));
         width: calc(60 / 100 * var(--width1));
         height: 60%;
         background-color: #ff90a1;
         border-radius: 50%;
+    }
+    
+    .Home__container{
+        display: flex;
+        flex-direction: column;
+    
+        background-color: #020f38;   
+        color: white;
+        padding: 4%;
+        height: calc( 100% - calc(8 / 100 * 480px))
     }
 }

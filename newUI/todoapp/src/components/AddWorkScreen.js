@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { IoIosArrowBack } from "react-icons/io";
-import './controller/AddWorkPage.css'
 import { Link } from 'react-router-dom';
+import './controller/AddWorkPage.css';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-import { BsCircleFill } from "react-icons/bs";
+import DateTimePicker from 'react-datetime-picker';
+
+// import DatePicker from 'react-datetime';
+// import moment from 'moment';
+// import 'react-datetime/css/react-datetime.css';
 
 AddWorkScreen.propTypes = {
     
@@ -14,10 +18,70 @@ function AddWorkScreen(props) {
     const [ activeTime, setActiveTime ] = useState('');
     const [ activeWork, setActiveWork ] = useState('');
 
-    console.log(activeWork);
+    const [ time, setTime ] = useState();
+
+    const [value, setValue] = useState(new Date());
+
+
+    const [modal, setModal] = useState(false);
+
+    const toggle = () => setModal(!modal);
+
+    // const [dt, setDt] = useState(moment());
+
+    const getTime = (value) => {
+        console.log(value.getTime())
+        setValue(value);
+        setTime(value.getTime());
+    }
+    
+    console.log(activeWork, value);
     const { AddTodo } = props;
     return (
         <div className='Add__container'>
+             {/* <div>
+             <DatePicker
+                inputProps={{
+                style: { width: 250 }
+                }}
+                value={dt}
+                dateFormat="DD-MM-YYYY"
+                timeFormat="hh:mm A"
+                onChange={val => setDt(val)}
+            />
+            </div> */}
+            <div>
+            {/* <Button color="danger" onClick={toggle}>Clicked!</Button> */}
+            <Modal isOpen={modal} toggle={toggle} style={{
+                overflowX: 'hidden',
+                overflowY:'auto', 
+                position:'fixed',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+            }}>
+                <ModalHeader toggle={toggle}>Time</ModalHeader>
+                <ModalBody>
+                <DateTimePicker
+                    onChange={getTime}
+                    value={value}
+                    dateFormat="DD-MM-YYYY"
+                    timeFormat="hh:mm A"
+                />
+                {/* <DatePicker
+                    value={dt}
+                    dateFormat="DD-MM-YYYY"
+                    timeFormat="hh:mm A"
+                    onChange={val => setDt(val)}
+                /> */}
+                </ModalBody>
+                <ModalFooter>
+                    <Button color="primary" onClick={toggle}>Ok</Button>{' '}
+                    <Button color="secondary" onClick={toggle}>Cancel</Button>
+                </ModalFooter>
+            </Modal>
+            </div>
             <div className='Add__header'>
                 <Link to='/'>
                     <IoIosArrowBack className='Add__icon' color="white" size='24px'/>
@@ -33,6 +97,7 @@ function AddWorkScreen(props) {
                                 className={activeTime == '15' ? 'Add__selecttime__icon__1 Add__selecttime__icon__1__active' : 'Add__selecttime__icon__1'}
                                 onClick={() => {
                                     setActiveTime('15');
+                                    setTime(15);
                                 }}
                             >
                             </div>
@@ -43,6 +108,7 @@ function AddWorkScreen(props) {
                                 className={activeTime == '30' ? 'Add__selecttime__icon__2 Add__selecttime__icon__2__active' : 'Add__selecttime__icon__2'}
                                 onClick={() => {
                                     setActiveTime('30');
+                                    setTime(30)
                                 }}
                             >
                             </div>
@@ -53,6 +119,7 @@ function AddWorkScreen(props) {
                                 className={activeTime == '45' ? 'Add__selecttime__icon__3 Add__selecttime__icon__3__active' : 'Add__selecttime__icon__3'}
                                 onClick={() => {
                                     setActiveTime('45');
+                                    setTime(45);
                                 }}
                             >
                             </div>
@@ -63,6 +130,7 @@ function AddWorkScreen(props) {
                                 className={activeTime == 'other' ? 'Add__selecttime__icon__4 Add__selecttime__icon__4__active' : 'Add__selecttime__icon__4'}
                                 onClick={() => {
                                     setActiveTime('other');
+                                    toggle();
                                 }}
                             >
                             </div>
@@ -129,7 +197,7 @@ function AddWorkScreen(props) {
                 <Link className='Add__button'
                     to="/"
                     onClick={() => {
-                        AddTodo({ title: activeWork, time: activeTime })
+                        AddTodo({ title: activeWork, time })
                     }}
                 >
                     <p>Add to timer</p>

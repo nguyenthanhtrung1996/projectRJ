@@ -17,16 +17,16 @@ function HomepageScreen(props) {
                 <p className='Home__Mostuse__title'>Most used timer</p>
                 <div className='Home__Mostuse__box__1'>
                     <p className='Home__Mostuse__box__title'>Breakfast</p>
-                    <p>{parseInt(toDoEveryday[0]/60)} hours {toDoEveryday[0]%60} min</p>
+                    <p>{toDoEveryday[0]} min</p>
                 </div>
                 <div className='Home__Mostuse__box__2'>
                     <div className='Home__Mostuse__box__Lunch'>
                         <p className='Home__Mostuse__box__title'>Lunch</p>
-                        <p>{parseInt(toDoEveryday[1]/60)} hours {toDoEveryday[1]%60} min</p>
+                        <p>{toDoEveryday[1]} min</p>
                     </div>
                     <div className='Home__Mostuse__box__Dinner'>
                         <p className='Home__Mostuse__box__title'>Dinner</p>
-                        <p>{parseInt(toDoEveryday[2]/60)} hours {toDoEveryday[2]%60} min</p>
+                        <p>{toDoEveryday[2]} min</p>
                     </div>
                 </div>
 
@@ -42,7 +42,7 @@ function HomepageScreen(props) {
                                     <div className='Home__Other__WorkBox__timeicon'>
                                         <p>{todo.minutes} min</p>
                                         <MdPause 
-                                            size={24}
+                                            size={22}
                                             onClick={() => {
                                                 removeTodo(todo,index);
                                             }}
