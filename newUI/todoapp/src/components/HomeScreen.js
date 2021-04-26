@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import './controller/HomepageScreen.css'
 import { MdPause } from "react-icons/md";
 import { Link } from 'react-router-dom';
+import ImageAdd from '../image/button-add.png';
+
 HomepageScreen.propTypes = {
     
 };
@@ -72,10 +74,10 @@ function HomepageScreen(props) {
             </div>
             <div className='Home__icon__box'>
                 {/* <IoIosAddCircle color='#ff90a1'/> */}
-                <Link className='Home__icon'
+                <Link
                     to="/AddWorkPage"
                 >
-                    <p>+</p>
+                    <img src={ImageAdd}/>
                 </Link>
             </div>
         </div>

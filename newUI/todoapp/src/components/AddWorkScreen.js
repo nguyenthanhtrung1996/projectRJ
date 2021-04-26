@@ -116,14 +116,14 @@ function AddWorkScreen(props) {
                         </div>
                         <div className='Add__selecttime__icon__box__3'>
                             <div 
-                                className={activeTime == '45' ? 'Add__selecttime__icon__3 Add__selecttime__icon__3__active' : 'Add__selecttime__icon__3'}
+                                className={activeTime == '60' ? 'Add__selecttime__icon__3 Add__selecttime__icon__3__active' : 'Add__selecttime__icon__3'}
                                 onClick={() => {
-                                    setActiveTime('45');
-                                    setTime(45);
+                                    setActiveTime('60');
+                                    setTime(60);
                                 }}
                             >
                             </div>
-                            <p className='Add__selecttime__decription'>45 min</p>
+                            <p className='Add__selecttime__decription'>60 min</p>
                         </div>
                         <div className='Add__selecttime__icon__box__4'>
                             <div 

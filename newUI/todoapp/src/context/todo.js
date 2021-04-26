@@ -8,9 +8,12 @@ export function TodoProvider(props){
     const [ toDoEveryday, setTodoEveryday ] = useState([]);
 
     useEffect(() => {
-        if(localStorage.getItem('todoList'))
-            console.log(true)
-        else localStorage.setItem('todoList', todoList)
+        if(localStorage.getItem('todoList') != null){
+            setTodoList(JSON.parse(localStorage.getItem('todoList')));
+        }
+        return () => {
+            localStorage.setItem('todoList', JSON.stringify(todoList));
+        }
     }, [])
 
     useEffect(() => {
@@ -21,7 +24,6 @@ export function TodoProvider(props){
                     removeTodo(todo,index);
                 }
             });
-            console.log(JSON.stringify(todoList))
         }, 5000)
         return () => {
             clearInterval(checkTime);
@@ -38,7 +40,9 @@ export function TodoProvider(props){
             newList.forEach(todo => {
                 todo.minutes = Math.floor((todo.time - getTimeCurrent())/60000)
             })
+            console.log(JSON.stringify(newList) != JSON.stringify(todoList))
             if(JSON.stringify(newList) != JSON.stringify(todoList)){
+                
                 setTodoList(newList);
             }
         }, 1000)
@@ -127,10 +131,11 @@ export function TodoProvider(props){
 
     const AddTodo = (obj) => {
         const newList = [...todoList];
-        if( obj.time < 46 ) obj.time = getTimeCurrent() + parseInt(obj.time) * 60000;
+        if( obj.time < 61 ) obj.time = getTimeCurrent() + parseInt(obj.time) * 60000;
         // obj.time = getTimeCurrent() + parseInt(obj.time) * 60000;
         newList.push(obj);
         formatTime(newList);
+        localStorage.setItem('todoList', JSON.stringify(newList))
     }
 
     const removeTodo = (todo,index) => {
@@ -138,6 +143,7 @@ export function TodoProvider(props){
         newList.splice(index,1);
         setTodoList(newList);
         alert(todo.title);
+        localStorage.setItem('todoList', JSON.stringify(newList))
     }
 
     const getTimeCurrent = () => {

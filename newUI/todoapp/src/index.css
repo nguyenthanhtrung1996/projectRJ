@@ -21,3 +21,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@media only screen and (max-width: 375px) {
+  body{
+    font-size: 0.8rem;
+  };
+}

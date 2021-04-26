@@ -164,6 +164,7 @@ p{
     background-color: #ff90a1;
     border-radius: 50%;
 
+    position: relative;
     /* --width: calc(100vh - calc(8/100*100vh));
     --width1: calc(0.141 * var(--width));
     width: calc(60 / 100 * var(--width1)); */
@@ -175,6 +176,24 @@ p{
     --width1: calc(0.14 * var(--width));
     width: calc(0.6 * var( --width1));
     height: 60%;
+}
+
+.Home__icon::before{
+    content: '';
+    border-bottom: 2px solid white;
+    width: 40%;
+    position: absolute;
+    left: 30%;
+    top: 48%;
+}
+
+.Home__icon::after {
+    content: '';
+    border-left: 2px solid white;
+    height: 40%;
+    top: 30%;
+    position: absolute;
+    left: 48%;
 }
 
 @media only screen and (min-width: 480px) {
