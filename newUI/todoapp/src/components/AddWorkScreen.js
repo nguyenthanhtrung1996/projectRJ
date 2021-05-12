@@ -27,16 +27,22 @@ function AddWorkScreen(props) {
 
     const toggle = () => setModal(!modal);
 
-    // const [dt, setDt] = useState(moment());
 
     const getTime = (value) => {
-        console.log(value.getTime())
         setValue(value);
         setTime(value.getTime());
     }
     
+    const checkValidate = (activeWork, time) => {
+        if(activeWork == '' || time == undefined){
+            return false;
+        }
+        return true;
+    }
+
     console.log(activeWork, value);
     const { AddTodo } = props;
+
     return (
         <div className='Add__container'>
              {/* <div>
@@ -195,9 +201,13 @@ function AddWorkScreen(props) {
             </div>
             <div className='Add__footer'>
                 <Link className='Add__button'
-                    to="/"
+                    to={checkValidate(activeWork,time) == true ? '/' : '/AddWorkPage'}
                     onClick={() => {
-                        AddTodo({ title: activeWork, time })
+                        if(checkValidate(activeWork, time)){
+                            AddTodo({ title: activeWork, time })
+                        } else{
+                            alert('Error: Add Work or Time');
+                        }
                     }}
                 >
                     <p>Add to timer</p>

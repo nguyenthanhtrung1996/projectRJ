@@ -123,7 +123,7 @@ p{
     margin: 0 5% 5% 0;
 }
 
-.Home__Other__WorkBox:nth-last-child(1){
+.Home__Other__WorkBox__animation:nth-last-child(1){
     animation: movehome 0.5s;
 }
 
@@ -138,7 +138,7 @@ p{
     }
 }
 
-.Home__Other__WorkList div:nth-child(3n+0) {
+.Home__Other__WorkList li:nth-child(3n+0) {
     /* background: red; */
     margin: 0 0 5% 0;
 }
